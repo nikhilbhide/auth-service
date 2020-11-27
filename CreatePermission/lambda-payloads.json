@@ -1,0 +1,15 @@
+{
+    "CreatePermission": {
+        "lambda": {
+            "groups": "Admin",
+            "permissions": [
+                "CREATE",
+                "READ",
+                "UPDATE",
+                "DELETE"
+            ],
+            "resource": "s3  ",
+            "effect": "Allow"
+        }
+    }
+}

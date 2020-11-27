@@ -1,0 +1,1 @@
+    aws lambda create-function --function-name add-dragon --runtime nodejs10.x  --role <IAM ROLE ARN> --handler addDragon.handler --publish --zip-file fileb://nodeAddDragonFunction.zip
