@@ -1,0 +1,8 @@
+{
+    "GetAuth": {
+        "lambda": {
+            "group": "Admin",
+            "resource": "s3"
+        }
+    }
+}
