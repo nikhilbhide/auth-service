@@ -24,3 +24,25 @@ Resources:
       Policies:
         - AmazonDynamoDBFullAccess
       Tracing: Active
+  GetAuth:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: GetAuth/index.handler
+      Runtime: nodejs12.x
+      Description: ''
+      MemorySize: 128
+      Timeout: 15
+      Policies:
+        - AmazonDynamoDBFullAccess
+      Tracing: Active
+  UpdateAuth:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: UpdateAuth/index.handler
+      Runtime: nodejs12.x
+      Description: ''
+      MemorySize: 128
+      Timeout: 15
+      Policies:
+        - AmazonDynamoDBFullAccess
+      Tracing: Active

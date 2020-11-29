@@ -1,0 +1,29 @@
+{
+    "UpdateAuth": {
+        "lambda": {
+            "group": "Admin",
+            "policies": [
+                {
+                    "resource": "s38",
+                    "permissions": [
+                        "CREATE",
+                        "READ",
+                        "UPDATE",
+                        "DELETE"
+                    ],
+                    "effect": "Allow"
+                },
+                {
+                    "resource": "s3",
+                    "permissions": [
+                        "CREATE",
+                        "READ",
+                        "UPDATE",
+                        "DELETE"
+                    ],
+                    "effect": "Allow"
+                }
+            ]
+        }
+    }
+}
