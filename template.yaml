@@ -2,10 +2,10 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: An AWS Serverless Specification template describing your function.
 Resources:
-  CreatePermission:
+  CreateAuth:
     Type: 'AWS::Serverless::Function'
     Properties:
-      Handler: CreatePermission/index.handler
+      Handler: CreateAuth/index.handler
       Runtime: nodejs12.x
       Description: ''
       MemorySize: 128
@@ -13,10 +13,12 @@ Resources:
       Policies:
         - AmazonDynamoDBFullAccess
       Tracing: Active
-  DeletePermission:
+      Layers:
+        - Ref: DependencyLayer
+  DeleteAuth:
     Type: 'AWS::Serverless::Function'
     Properties:
-      Handler: DeletePermission/index.handler
+      Handler: DeleteAuth/index.handler
       Runtime: nodejs12.x
       Description: ''
       MemorySize: 128
@@ -24,6 +26,8 @@ Resources:
       Policies:
         - AmazonDynamoDBFullAccess
       Tracing: Active
+      Layers:
+        - Ref: DependencyLayer
   GetAuth:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -35,6 +39,8 @@ Resources:
       Policies:
         - AmazonDynamoDBFullAccess
       Tracing: Active
+      Layers:
+        - Ref: DependencyLayer
   UpdateAuth:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -46,3 +52,25 @@ Resources:
       Policies:
         - AmazonDynamoDBFullAccess
       Tracing: Active
+      Layers:
+        - Ref: DependencyLayer    
+  CreatePermissions:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: CreatePermissions/index.handler
+      Runtime: nodejs12.x
+      Description: ''
+      MemorySize: 128
+      Timeout: 15
+      Layers:
+        - Ref: DependencyLayer
+  DependencyLayer:
+    Type: 'AWS::Serverless::LayerVersion'
+    Properties:
+      LayerName: auth-service-dependencies
+      Description: 'Dependencies for auth service'
+      ContentUri: dependencies/
+      CompatibleRuntimes:
+        - nodejs12.x
+      LicenseInfo: MIT
+      RetentionPolicy: Retain
