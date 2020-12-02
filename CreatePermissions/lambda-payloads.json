@@ -1,0 +1,15 @@
+{
+    "CreatePermissions": {
+        "lambda": {
+            "resource": "Ath",
+            "permissions": [
+                "CREATE",
+                "READ",
+                "UPDATE",
+                "DELETE",
+                "DELETE",
+                "CREATE"
+            ]
+        }
+    }
+}
